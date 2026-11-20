@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎮 Game Recommender</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="tg" aria-label="Sidebar">☰</button>
+<aside id="side">
+  <hr style="margin:1.5rem 0">
+  <h3>📊 Dataset Info</h3>
+  <p><strong>Source</strong>: Kaggle Video Game Sales<br><strong>Records</strong>: ~16.500 games<br><strong>Fitur</strong>: Platform, Genre, Publisher, Sales Region</p>
+</aside>
+<main id="main">
+  <div class="main-header">🎮 Game Recommendation System 🎮</div>
+  <div class="sub-header">Powered by Content-Based Filter | vgsales Dataset</div>
+  <hr>
+  <div id="note"></div>
+  <div class="cols" id="mets"></div>
+  <hr>
+  <div class="tabs" role="tablist">
+    <button aria-selected="true" data-t="t1">🔍 Cari by Judul</button>
+    <button aria-selected="false" data-t="t2">🎭 Cari by Genre</button>
+    <button aria-selected="false" data-t="t3">⚙️ Filter Preferensi</button>
+    <button aria-selected="false" data-t="t4">📊 EDA &amp; Visualisasi</button>
+  </div>
+
+  <div class="panel" id="t1">
+    <h2 class="sub">🔍 Rekomendasi Berdasarkan Judul Game</h2>
+    <p class="cap">Masukkan judul game yang kamu suka dan sistem akan merekomendasikan game serupa.</p>
+    <div class="cols"><div class="c4"><input id="title" type="text" placeholder="Contoh: Grand Theft Auto V, FIFA, Mario..." aria-label="Nama Game"></div>
+      <div class="c1"><div class="num"><input id="n1" type="number" min="5" max="20" value="10" aria-label="Top N"></div></div></div>
+    <p class="cap" id="sug" style="margin-top:-.5rem;min-height:1.4em"></p>
+    <button class="go" id="b1">🚀 Cari Rekomendasi</button>
+    <div id="o1" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="panel" id="t2" hidden>
+    <h2 class="sub">🎭 Rekomendasi Berdasarkan Genre</h2>
+    <p class="cap">Pilih genre favoritmu dan lihat top game berdasarkan penjualan global.</p>
+    <div class="cols"><div class="c3"><label class="l">Pilih Genre</label><select id="g2"></select></div>
+      <div class="c1"><label class="l">Jumlah Top Games</label><div class="num"><input id="n2" type="number" min="5" max="20" value="10"></div></div></div>
+    <button class="go" id="b2">🎯 Tampilkan Top Games</button>
+    <div id="o2" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="panel" id="t3" hidden>
+    <h2 class="sub">⚙️ Rekomendasi Berdasarkan Preferensi</h2>
+    <p class="cap">Filter game sesuai preferensimu: genre, platform, dan rentang tahun rilis.</p>
+    <div class="cols"><div class="c1">
+      <div class="fld"><label class="l">Genre (opsional)</label><select id="g3"></select></div>
+      <div class="fld"><label class="l">Platform (opsional)</label><select id="p3"></select></div></div>
+      <div class="c1"><label class="l">Rentang Tahun Rilis</label>
+        <div class="sl" id="sl"><div class="tr"></div><div class="fl"></div><input type="range" id="ya"><input type="range" id="yb"><em id="va"></em><em id="vb"></em><span class="e" id="e1" style="left:0"></span><span class="e" id="e2" style="right:0"></span></div>
+        <div class="fld" style="margin-top:.5rem"><label class="l">Jumlah Rekomendasi</label><div class="num"><input id="n3" type="number" min="5" max="30" value="10"></div></div></div></div>
+    <button class="go" id="b3">🔍 Cari Game</button>
+    <div id="o3" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="panel" id="t4" hidden></div>
+  <hr>
+  <footer>🎮 Game Recommendation System 🎮</footer>
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
